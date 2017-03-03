@@ -71,8 +71,12 @@ public class Ambiente extends Environment {
 
 					BufferedReader entrada = new BufferedReader(new InputStreamReader(cli.getInputStream()));
 					String mensajeRecibido = entrada.readLine();
-					System.out.println(mensajeRecibido);
-
+					if (mensajeRecibido != "") {
+						System.out.println(mensajeRecibido);
+					}
+					else{
+						System.out.println("Message incoming failed");
+					}
 					cli.close();
 
 				} catch (Exception e) {
