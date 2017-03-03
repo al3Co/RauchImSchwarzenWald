@@ -10,9 +10,11 @@ def readingData():
         s.listen(5)
         print 'Connecting ... '
         while True:
+            print 'Waiting for data'
             c, addr = s.accept()
             print("Connection accepted from " + repr(addr[1]))
             dataIncoming = c.recv(1026)
+            stringdata = dataIncoming.decode('utf-8')
             if (dataIncoming != ""):
                 print dataIncoming
                 if (dataIncoming == "pick(grab)"):
