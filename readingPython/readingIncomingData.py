@@ -8,7 +8,7 @@ def readingData():
         port = 50009
         s.bind((host,port))
         s.listen(5)
-        print 'Connecting to: ' + host + 'from: ' + str(port)
+        print 'Connecting to: ' + host + ' from: ' + str(port)
         while True:
             print 'Waiting for data ... '
             c, addr = s.accept()
@@ -19,6 +19,7 @@ def readingData():
                 print dataIncoming
                 if (dataIncoming == "pick(grab)"):
                     print 'You are in!!! ' + dataIncoming
+                    pickGrabFunction()
                 else:
                     print 'Somting else'
             else:
@@ -28,6 +29,11 @@ def readingData():
             c.close()
     except (RuntimeError, TypeError, NameError, SyntaxError) as e:
         print 'Oops!  Something wrong' , e
+
+
+def pickGrabFunction():
+    print 'Here should be the code to move the Drone'
+
 
 if __name__ == "__main__":
     readingData()
