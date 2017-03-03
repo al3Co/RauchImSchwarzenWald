@@ -8,7 +8,7 @@ def readingData():
         port = 50009
         s.bind((host,port))
         s.listen(5)
-        print 'Connecting ... '
+        print 'Connecting ... ' + host
         while True:
             print 'Waiting for data'
             c, addr = s.accept()
@@ -26,8 +26,8 @@ def readingData():
             c.send('Server approved connection\n')
             print repr(addr[1]) + ": " + c.recv(1026)
             c.close()
-    except (RuntimeError, TypeError, NameError, SyntaxError):
-        print('Oops!  Something wrong')
+    except (RuntimeError, TypeError, NameError, SyntaxError) as e:
+        print 'Oops!  Something wrong' , e
 
 if __name__ == "__main__":
     readingData()
