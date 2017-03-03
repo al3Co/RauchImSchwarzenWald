@@ -12,7 +12,7 @@ def readingData():
         while True:
             print 'Waiting for data'
             c, addr = s.accept()
-            print("Connection accepted from " + repr(addr[1]))
+            print('Connection accepted from ' + repr(addr[1]))
             dataIncoming = c.recv(1026)
             stringdata = dataIncoming.decode('utf-8')
             if (dataIncoming != ""):
@@ -22,8 +22,8 @@ def readingData():
                 else:
                     print 'Somting else'
             else:
-                print 'Message incoming failed'
-            c.send("Server approved connection\n")
+                print 'Message incoming failed' + dataIncoming
+            c.send('Server approved connection\n')
             print repr(addr[1]) + ": " + c.recv(1026)
             c.close()
     except (RuntimeError, TypeError, NameError, SyntaxError):
