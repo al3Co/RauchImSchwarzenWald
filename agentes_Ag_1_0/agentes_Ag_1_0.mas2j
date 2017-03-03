@@ -1,0 +1,17 @@
+MAS agentes_Ag_1_0 {
+
+	infrastructure: Centralised
+
+	environment: Ambiente
+
+	agents:
+		agent2;
+		agent1;
+		
+		
+				
+		
+	
+	aslSourcePath:
+		"src/asl";
+}
