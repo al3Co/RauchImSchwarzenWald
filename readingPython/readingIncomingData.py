@@ -15,15 +15,15 @@ def readingData():
             print('Connection accepted from ' + repr(addr[1]))
             dataIncoming = c.recv(1026)
             stringdata = dataIncoming.decode('utf-8')
-            if (dataIncoming != ""):
-                print dataIncoming
-                if (dataIncoming == "pick(grab)"):
-                    print 'You are in!!! ' + dataIncoming
+            if (stringdata != ""):
+                print stringdata
+                if (stringdata == "pick(grab)"):
+                    print 'You are in!!! ' + stringdata
                     pickGrabFunction()
                 else:
                     print 'Somting else'
             else:
-                print 'Message incoming failed' + dataIncoming
+                print 'Message incoming failed' + stringdata
             c.send('Server approved connection\n')
             print repr(addr[1]) + ": " + c.recv(1026)
             c.close()
