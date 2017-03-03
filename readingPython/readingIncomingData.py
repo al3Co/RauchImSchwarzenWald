@@ -8,9 +8,9 @@ def readingData():
         port = 50009
         s.bind((host,port))
         s.listen(5)
-        print 'Connecting ... ' + host
+        print 'Connecting to: ' + host + 'from: ' + str(port)
         while True:
-            print 'Waiting for data'
+            print 'Waiting for data ... '
             c, addr = s.accept()
             print('Connection accepted from ' + repr(addr[1]))
             dataIncoming = c.recv(1026)
