@@ -1,4 +1,4 @@
-from ast import literal_eval
+
 import socket
 
 def readingData():
@@ -15,14 +15,14 @@ def readingData():
             print('Connection accepted from ' + repr(addr[1]))
             dataIncoming = c.recv(1026)
             print (get_type(dataIncoming)) #Print data type
-            stringdata = dataIncoming.decode('utf-8')
+            stringdata = str(dataIncoming)
             if (stringdata != ""):
                 print stringdata
                 if (stringdata == "pick(grab)"):
                     print 'You are in!!! ' + stringdata
                     pickGrabFunction()
                 else:
-                    print 'Somting else'
+                    print 'Somting else' + stringdata
             else:
                 print 'Message incoming failed' + stringdata
             c.send('Server approved connection\n')
@@ -37,7 +37,7 @@ def pickGrabFunction():
 
 def get_type(input_data):
     try:
-        return type(literal_eval(input_data))
+        return type(input_data)
     except (ValueError, SyntaxError):
         # A string, so return str
         return str
