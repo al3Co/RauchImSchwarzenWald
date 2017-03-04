@@ -1,4 +1,4 @@
-
+from ast import literal_eval
 import socket
 
 def readingData():
@@ -14,6 +14,7 @@ def readingData():
             c, addr = s.accept()
             print('Connection accepted from ' + repr(addr[1]))
             dataIncoming = c.recv(1026)
+            print (get_type(dataIncoming)) #Print data type
             stringdata = dataIncoming.decode('utf-8')
             if (stringdata != ""):
                 print stringdata
@@ -27,12 +28,19 @@ def readingData():
             c.send('Server approved connection\n')
             print repr(addr[1]) + ": " + c.recv(1026)
             c.close()
-    except (RuntimeError, TypeError, NameError, SyntaxError) as e:
+    except (RuntimeError, TypeError, NameError, SyntaxError, socket.gaierror) as e:
         print 'Oops!  Something wrong' , e
 
 
 def pickGrabFunction():
     print 'Here should be the code to move the Drone'
+
+def get_type(input_data):
+    try:
+        return type(literal_eval(input_data))
+    except (ValueError, SyntaxError):
+        # A string, so return str
+        return str
 
 
 if __name__ == "__main__":
