@@ -1,1 +1,0 @@
-INDEX VERSION 1.127+/Users/AldoC/Documents/Programing/GitHub/RauchImSchwarzenWald/.metadata/.plugins/org.eclipse.jdt.core
