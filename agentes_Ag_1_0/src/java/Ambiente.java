@@ -63,7 +63,7 @@ public class Ambiente extends Environment {
 				// model.generacion_ruta();
 				try {
 
-					Socket cli = new Socket("192.168.70.44", 50009);
+					Socket cli = new Socket("192.168.0.143", 50009);
 					// Socket cli = new Socket("10.0.0.9", 50009);
 					DataOutputStream flujo = new DataOutputStream(cli.getOutputStream());
 					flujo.writeUTF("pick(garb)");
