@@ -66,7 +66,8 @@ public class Ambiente extends Environment {
 					Socket cli = new Socket("192.168.0.143", 50009);
 					// Socket cli = new Socket("10.0.0.9", 50009);
 					DataOutputStream flujo = new DataOutputStream(cli.getOutputStream());
-					flujo.writeUTF("pick(garb)");
+					//flujo.writeUTF("pick(garb)");
+					flujo.writeBytes("pick(garb)");
 					// flujo.writeInt(1);
 
 					BufferedReader entrada = new BufferedReader(new InputStreamReader(cli.getInputStream()));
