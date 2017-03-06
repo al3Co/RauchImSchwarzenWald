@@ -35,7 +35,7 @@ def reviewDataIncoming(c, stringdata):
                 c.send("Server approved connection\n")
             else:
                 print 'mario2' + ': ' + stringdata
-                print 'crear accion para datos incompletos en el ambiente Java'
+                #print 'crear accion para datos incompletos en el ambiente Java'
         else:
             print 'Message incoming void'
     except (ValueError, SyntaxError) as e:
